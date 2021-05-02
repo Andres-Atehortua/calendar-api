@@ -1,0 +1,19 @@
+{
+  "name": "calendar-api",
+  "version": "1.0.0",
+  "description": "API rest para consumir en calendar-app",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Andres-Atehortua/calendar-api.git"
+  },
+  "author": "Andres Lopez Atehortua",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Andres-Atehortua/calendar-api/issues"
+  },
+  "homepage": "https://github.com/Andres-Atehortua/calendar-api#readme"
+}
