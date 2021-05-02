@@ -4,7 +4,8 @@
   "description": "API rest para consumir en calendar-app",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "npx nodemon src/app.js",
+    "start": "node src/index.js"
   },
   "repository": {
     "type": "git",
@@ -15,5 +16,10 @@
   "bugs": {
     "url": "https://github.com/Andres-Atehortua/calendar-api/issues"
   },
-  "homepage": "https://github.com/Andres-Atehortua/calendar-api#readme"
+  "homepage": "https://github.com/Andres-Atehortua/calendar-api#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1"
+  }
 }
