@@ -4,19 +4,21 @@
 */
 
 const { Router } = require('express');
-
 const router = Router();
 
-router.post('/new', (req, res) => {
-  res.json({ ok: true });
-});
+const {
+  createUser,
+  login,
+  renewToken,
+} = require('../controllers/authController');
+const schemaValidatorMiddleware = require('../middlewares/schemaValidatorMiddleware');
+const loginSchema = require('../schemas/loginSchema');
+const registerSchema = require('../schemas/registerSchema');
 
-router.post('/', (req, res) => {
-  res.json({ ok: true });
-});
+router.post('/', [schemaValidatorMiddleware(loginSchema)], login);
 
-router.get('/renew', (req, res) => {
-  res.json({ ok: true });
-});
+router.post('/new', [schemaValidatorMiddleware(registerSchema)], createUser);
+
+router.get('/renew', renewToken);
 
 module.exports = router;

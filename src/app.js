@@ -11,6 +11,10 @@ const app = express();
 app.use(compression());
 app.use(express.static('public'));
 
+// Parsear el body
+
+app.use(express.json());
+
 // Rutas
 
 app.use('/api/auth', require('./routes/auth.routes'));

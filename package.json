@@ -18,6 +18,9 @@
   },
   "homepage": "https://github.com/Andres-Atehortua/calendar-api#readme",
   "dependencies": {
+    "ajv": "^8.2.0",
+    "ajv-errors": "^3.0.0",
+    "ajv-formats": "^2.0.2",
     "compression": "^1.7.4",
     "dotenv": "^8.2.0",
     "express": "^4.17.1"
