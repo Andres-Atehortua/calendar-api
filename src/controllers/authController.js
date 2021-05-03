@@ -1,9 +1,9 @@
-const { response } = require('express');
+const { response, json } = require('express');
 const UserModel = require('../models/User');
 const bcrypt = require('bcryptjs');
 
 const createUser = async (req, res = response) => {
-  const { name, email, password } = req.body;
+  const { email, password } = req.body;
 
   try {
     let user = await UserModel.findOne({ email });
@@ -25,6 +25,7 @@ const createUser = async (req, res = response) => {
 
     res.status(201).json({ success: true, uid: user.id, name: user.name });
   } catch (error) {
+    console.log(error);
     res.status(500).json({
       success: false,
       error: { name: error.name, message: 'Ha habido un problema.' },
@@ -32,7 +33,43 @@ const createUser = async (req, res = response) => {
   }
 };
 
-const login = (req, res) => {
+const login = async (req, res = response) => {
+  const { password, email } = req.body;
+
+  try {
+    let user = await UserModel.findOne({ email });
+    if (!user) {
+      return res.status(400).json({
+        success: false,
+        error: 'No existe ningún usuario asociado a este email.',
+      });
+    }
+
+    // Confirmar contraseñas
+
+    const validPassword = bcrypt.compareSync(password, user.password);
+
+    if (!validPassword) {
+      return res
+        .status(400)
+        .json({ success: false, error: 'La contraseña es incorrecta.' });
+    }
+
+    // Generar JWT
+
+    return res.status(200).json({
+      success: true,
+      uid: user.id,
+      name: user.name,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      success: false,
+      error: { name: error.name, message: 'Ha habido un problema.' },
+    });
+  }
+
   res.json({ ok: true, msg: 'login' });
 };
 
