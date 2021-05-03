@@ -11,6 +11,7 @@ const {
   login,
   renewToken,
 } = require('../controllers/authController');
+
 const schemaValidatorMiddleware = require('../middlewares/schemaValidatorMiddleware');
 const loginSchema = require('../schemas/loginSchema');
 const registerSchema = require('../schemas/registerSchema');
