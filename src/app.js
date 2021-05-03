@@ -2,6 +2,7 @@ const express = require('express');
 require('dotenv').config();
 const compression = require('compression');
 const { dbConnection } = require('./database/config');
+const cors = require('cors');
 
 // Crear servidor de express
 
@@ -10,6 +11,10 @@ const app = express();
 // Conexión a la base de datos
 
 dbConnection();
+
+// Cors
+
+app.use(cors());
 
 // Directorio público
 
