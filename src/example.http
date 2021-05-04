@@ -1,3 +1,5 @@
+@token: 123
+
 POST http://localhost:5001/api/auth/new
 content-type: application/json
 
@@ -24,15 +26,24 @@ x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDkwMzAxMjYxNzY2NDM1Nm
 
 ###
 
+
 GET http://localhost:5001/api/events
 x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDkwMzAxMjYxNzY2NDM1NmU5NDA2OGUiLCJuYW1lIjoiQW5kcmVzIiwiaWF0IjoxNjIwMTQ3NTEzLCJleHAiOjE2MjAxNTQ3MTN9.AF3OQMxv2pqZXuyaTNinFtDB95O8Dh1m03YjyXU-4cg
+
 
 
 ###
 
 POST http://localhost:5001/api/events
+Content-Type: application/json
 x-token: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2MDkwMzAxMjYxNzY2NDM1NmU5NDA2OGUiLCJuYW1lIjoiQW5kcmVzIiwiaWF0IjoxNjIwMTQ3NTEzLCJleHAiOjE2MjAxNTQ3MTN9.AF3OQMxv2pqZXuyaTNinFtDB95O8Dh1m03YjyXU-4cg
 
+{
+    "title": "Titulo de la nota",
+    "notes": "Soy las notas",
+    "start": 0,
+    "end": "Tue May 04 2021 20:39:25 GMT+0200 (hora de verano de Europa central)"
+}
 
 ###
 

@@ -15,6 +15,9 @@ const {
 
 const { validateJWT } = require('../middlewares/validateJWTMiddleware');
 
+const schemaValidatorMiddleware = require('../middlewares/schemaValidatorMiddleware');
+const eventSchema = require('../schemas/eventSchema');
+
 // Aplicar middleware a todas las rutas
 
 router.use(validateJWT);
@@ -24,7 +27,7 @@ router.use(validateJWT);
 router.get('/', getEvents);
 
 // Crear evento
-router.post('/', createEvent);
+router.post('/', schemaValidatorMiddleware(eventSchema), createEvent);
 
 // Actualizar evento
 router.post('/:id', updateEvent);

@@ -5,6 +5,9 @@ const getEvents = (req, res = response) => {
 };
 
 const createEvent = (req, res = response) => {
+  // Verificar que tengo el evento
+  console.log(req.body);
+
   res.status(200).json({ success: true, message: 'ha entrado en createEvent' });
 };
 
