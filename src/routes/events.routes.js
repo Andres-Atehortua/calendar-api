@@ -1,3 +1,8 @@
+/**
+ * Events route
+ * /api/events
+ */
+
 const { Router } = require('express');
 const router = Router();
 
@@ -10,17 +15,21 @@ const {
 
 const { validateJWT } = require('../middlewares/validateJWTMiddleware');
 
+// Aplicar middleware a todas las rutas
+
+router.use(validateJWT);
+
 // Obtener eventos
 
-router.get('/', validateJWT, getEvents);
+router.get('/', getEvents);
 
 // Crear evento
-router.post('/', validateJWT, createEvent);
+router.post('/', createEvent);
 
 // Actualizar evento
-router.post('/:id', validateJWT, updateEvent);
+router.post('/:id', updateEvent);
 
 // Borrar evento
-router.delete('/:id', validateJWT, deleteEvent);
+router.delete('/:id', deleteEvent);
 
 module.exports = router;
