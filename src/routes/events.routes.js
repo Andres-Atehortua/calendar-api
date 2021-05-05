@@ -30,7 +30,7 @@ router.get('/', getEvents);
 router.post('/', schemaValidatorMiddleware(eventSchema), createEvent);
 
 // Actualizar evento
-router.post('/:id', updateEvent);
+router.post('/:id', schemaValidatorMiddleware(eventSchema), updateEvent);
 
 // Borrar evento
 router.delete('/:id', deleteEvent);

@@ -4,6 +4,13 @@ const ajv = new Ajv({ allErrors: true, removeAdditional: true });
 require('ajv-errors')(ajv);
 require('ajv-formats')(ajv);
 
+ajv.addFormat('mongo_id', {
+  validate: (data) => {
+    const re = /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i;
+    return re.test(data);
+  },
+});
+
 const schemaValidatorMiddleware = (schema) => (req, res, next) => {
   const validate = ajv.compile(schema);
   validate(req.body);
