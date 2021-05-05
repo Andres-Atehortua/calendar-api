@@ -77,8 +77,6 @@ const login = async (req, res = response) => {
       error: { name: error.name, message: 'Ha habido un problema.' },
     });
   }
-
-  res.json({ ok: true, msg: 'login' });
 };
 
 const renewToken = async (req, res) => {
