@@ -17,7 +17,7 @@ const schemaValidatorMiddleware = (schema) => (req, res, next) => {
 
   if (validate.errors) {
     const errors = validate.errors.map((error) => error.message);
-    return res.status(400).json({ success: false, errors });
+    return res.status(400).json({ success: false, error: errors.join(' ') });
   } else {
     next();
   }

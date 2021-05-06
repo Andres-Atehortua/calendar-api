@@ -17,7 +17,7 @@ const { validateJWT } = require('../middlewares/validateJWTMiddleware');
 const loginSchema = require('../schemas/loginSchema');
 const registerSchema = require('../schemas/registerSchema');
 
-router.post('/', [schemaValidatorMiddleware(loginSchema)], login);
+router.post('/', schemaValidatorMiddleware(loginSchema), login);
 
 router.post('/new', [schemaValidatorMiddleware(registerSchema)], createUser);
 

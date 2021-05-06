@@ -41,7 +41,6 @@ const createUser = async (req, res = response) => {
 
 const login = async (req, res = response) => {
   const { password, email } = req.body;
-
   try {
     let user = await UserModel.findOne({ email });
     if (!user) {
@@ -84,7 +83,7 @@ const renewToken = async (req, res) => {
   // Generar JWT
   const token = await generateJWT(uid, name);
 
-  res.json({ success: true, token });
+  res.json({ success: true, token, name, uid });
 };
 
 module.exports = { createUser, login, renewToken };
