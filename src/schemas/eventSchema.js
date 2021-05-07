@@ -4,8 +4,8 @@ const eventSchema = {
   properties: {
     title: { type: 'string', minLength: 1 },
     notes: { type: 'string' },
-    start: { type: 'number', format: 'date' },
-    end: { type: 'number', format: 'date' },
+    start: { type: ['number', 'string'] },
+    end: { type: ['number', 'string'] },
   },
   additionalProperties: false,
   errorMessage: {

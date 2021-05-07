@@ -1,5 +1,9 @@
 const Ajv = require('ajv').default;
-const ajv = new Ajv({ allErrors: true, removeAdditional: true });
+const ajv = new Ajv({
+  allErrors: true,
+  removeAdditional: true,
+  allowUnionTypes: true,
+});
 
 require('ajv-errors')(ajv);
 require('ajv-formats')(ajv);
